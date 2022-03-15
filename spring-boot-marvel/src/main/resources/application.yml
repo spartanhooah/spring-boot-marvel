@@ -1,2 +1,9 @@
 server:
   port: 8080
+
+marvel:
+  api:
+    url: "https://gateway.marvel.com"
+    publickey: "1885c34d3263b37ab5104ee97fd397e3"
+    privatekey: "4900722362b19e654e1c13afef9034cfc7f8c7f6"
+
