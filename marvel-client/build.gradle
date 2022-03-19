@@ -20,11 +20,15 @@ dependencies {
     api(project(":marvel-data"))
 
     implementation("org.springframework.boot:spring-boot-starter")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
+    implementation('com.squareup.retrofit2:retrofit:2.9.0')
+    implementation('com.squareup.retrofit2:converter-jackson:2.9.0')
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation('com.squareup.okhttp3:mockwebserver:3.14.9')
 }
 
 build {
