@@ -1,11 +1,13 @@
 package com.yonatankarp.marvel.model
 
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonProperty
 import com.yonatankarp.marvel.model.common.Image
 import com.yonatankarp.marvel.model.common.Price
 import com.yonatankarp.marvel.model.common.ResourceList
 import com.yonatankarp.marvel.model.common.TextObjects
 import com.yonatankarp.marvel.model.common.Url
-import java.time.Instant
+import java.time.OffsetDateTime
 
 /**
  * A model representing a comics in the Marvel API.
@@ -17,156 +19,219 @@ data class Comics(
     /**
      * The unique ID of the comic resource.
      */
-    val id: Int,
+    @JsonProperty("id")
+    var id: Int,
 
     /**
      * The ID of the digital comic representation of this comic. Will be 0 if
      * the comic is not available digitally.
      */
-    val digitalId: Int,
+    @JsonProperty("digitalId")
+    var digitalId: Int,
 
     /**
      * The canonical title of the comic
      */
-    val title: String,
+    @JsonProperty("title")
+    var title: String,
 
     /**
      * The number of the issue in the series (will generally be 0 for collection
      * formats).
      */
-    val issueNumber: Int,
+    @JsonProperty("issueNumber")
+    var issueNumber: Int,
 
     /**
      * If the issue is a variant (e.g. an alternate cover, second printing, or
      * director's cut), a text description of the variant.
      */
-    val variantDescription: String,
+    @JsonProperty("variantDescription")
+    var variantDescription: String,
 
     /**
      * The preferred description of the comic.
      */
-    val description: String,
+    @JsonProperty("description")
+    var description: String,
 
     /**
      * 	The date the resource was most recently modified.
      */
-    val modified: Instant,
+    @JsonProperty("modified")
+    var modified: OffsetDateTime,
 
     /**
      * The ISBN for the comic (generally only populated for collection formats).
      */
-    val isbn: String,
+    @JsonProperty("isbn")
+    var isbn: String,
 
     /**
      * The UPC barcode number for the comic (generally only populated for
      * periodical formats).
      */
-    val upc: String,
+    @JsonProperty("upc")
+    var upc: String,
 
     /**
      * The Diamond code for the comic.
      */
-    val diamondCode: String,
+    @JsonProperty("diamondCode")
+    var diamondCode: String,
 
     /**
      * The EAN barcode for the comic.
      */
-    val ean: String,
+    @JsonProperty("ean")
+    var ean: String,
 
     /**
      * The ISSN barcode for the comic.
      */
-    val issn: String,
+    @JsonProperty("issn")
+    var issn: String,
 
     /**
      * The publication format of the comic e.g. comic, hardcover, trade
      * paperback.
      */
-    val format: String,
+    @JsonProperty("format")
+    var format: String,
 
     /**
      * The number of story pages in the comic.
      */
-    val pageCount: Int,
+    @JsonProperty("pageCount")
+    var pageCount: Int,
 
     /**
      * A set of descriptive text blurbs for the comic.
      */
-    val textObjects: Array<TextObjects>,
+    @JsonProperty("textObjects")
+    var textObjects: Array<TextObjects>,
 
     /**
      * The canonical URL identifier for this resource.
      */
-    val resourceUri: String,
+    @JsonProperty("resourceURI")
+    var resourceUri: String,
 
     /**
      * A set of public website URLs for the resource.
      */
-    val urls: Set<Url>,
+    @JsonProperty("urls")
+    var urls: Set<Url>,
 
     /**
      * A summary representation of the series to which this comic belongs.
      */
-    val series: Array<SeriesSummary>,
+    @JsonProperty("series")
+    var series: Array<SeriesSummary>,
 
     /**
      * A list of variant issues for this comic (includes the "original" issue
      * if the current issue is a variant).
      */
-    val variants: Array<ComicsSummary>,
+    @JsonProperty("variants")
+    var variants: Array<ComicsSummary>,
 
     /**
      * A list of collections which include this comic (will generally be empty
      * if the comic's format is a collection).
      */
-    val collections: Array<ComicsSummary>,
+    @JsonProperty("collections")
+    var collections: Array<ComicsSummary>,
 
     /**
      * A list of issues collected in this comic (will generally be empty for
      * periodical formats such as "comic" or "magazine").
      */
-    val collectedIssues: Array<ComicsSummary>,
+    @JsonProperty("collectedIssues")
+    var collectedIssues: Array<ComicsSummary>,
 
     /**
      * A list of key dates for this comic.
      */
-    val dates: Array<Instant>,
+    @JsonProperty("dates")
+    var dates: Array<OffsetDateTime>,
 
     /**
      * A list of prices for this comic.
      */
-    val prices: Array<Price>,
+    @JsonProperty("prices")
+    var prices: Array<Price>,
 
     /**
      * The representative image for this comic.
      */
-    val thumbnail: Image,
+    @JsonProperty("thumbnail")
+    var thumbnail: Image,
 
     /**
      * A list of promotional images associated with this comic.
      */
-    val images: Array<Image>,
+    @JsonProperty("images")
+    var images: Array<Image>,
 
     /**
      * A resource list containing the creators associated with this comic.
      */
-    val creators: ResourceList<CreatorSummary>,
+    @JsonProperty("creators")
+    var creators: ResourceList<CreatorSummary>,
 
     /**
      * A resource list containing the characters which appear in this comic.
      */
-    val characters: ResourceList<CharacterSummary>,
+    @JsonProperty("characters")
+    var characters: ResourceList<CharacterSummary>,
 
     /**
      * 	A resource list containing the stories which appear in this comic.
      */
-    val stories: ResourceList<StorySummary>,
+    @JsonProperty("stories")
+    var stories: ResourceList<StorySummary>,
 
     /**
      * A resource list containing the events in which this comic appears.
      */
-    val events: ResourceList<EventSummary>
+    @JsonProperty("events")
+    var events: ResourceList<EventSummary>
 ) {
+    @Suppress("unused")
+    @JsonCreator
+    internal constructor() : this(
+        0,
+        0,
+        "",
+        0,
+        "",
+        "",
+        OffsetDateTime.MIN,
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        0,
+        emptyArray(),
+        "",
+        emptySet(),
+        emptyArray(),
+        emptyArray(),
+        emptyArray(),
+        emptyArray(),
+        emptyArray(),
+        emptyArray(),
+        Image(),
+        emptyArray(),
+        ResourceList<CreatorSummary>(),
+        ResourceList<CharacterSummary>(),
+        ResourceList<StorySummary>(),
+        ResourceList<EventSummary>()
+    )
+
     @Suppress("Duplicates", "kotlin:S3776")
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

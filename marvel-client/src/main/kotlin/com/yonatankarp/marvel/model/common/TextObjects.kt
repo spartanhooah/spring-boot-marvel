@@ -1,5 +1,8 @@
 package com.yonatankarp.marvel.model.common
 
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * Text objects are bits of descriptive text which are attached to an entity.
  *
@@ -9,15 +12,22 @@ data class TextObjects(
     /**
      * The string description of the text object (e.g. solicit text, preview text, etc.).
      */
-    val type: String,
+    @JsonProperty("type")
+    var type: String,
 
     /**
      * A language code denoting which language the text object is written in.
      */
-    val language: String,
+    @JsonProperty("language")
+    var language: String,
 
     /**
      * The text of the text object.
      */
-    val text: String
-)
+    @JsonProperty("text")
+    var text: String
+) {
+    @Suppress("unused")
+    @JsonCreator
+    internal constructor() : this("", "", "")
+}

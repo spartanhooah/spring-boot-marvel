@@ -2,6 +2,9 @@
 
 package com.yonatankarp.marvel.model
 
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  * @author yonatankarp
  */
@@ -23,12 +26,30 @@ sealed class BaseSummary(
  * @param resourceUri url reference to consume the full comics entity
  * @param name the name of the comics
  */
-class ComicsSummary(resourceUri: String, name: String) : BaseSummary(resourceUri, name)
+class ComicsSummary(
+    @JsonProperty("resourceURI")
+    resourceUri: String,
+
+    @JsonProperty("name")
+    name: String
+) : BaseSummary(resourceUri, name) {
+    @JsonCreator
+    internal constructor() : this("", "")
+}
 
 /**
  * A Series summary includes reference to the series entity and the series name.
  */
-class SeriesSummary(resourceUri: String, name: String) : BaseSummary(resourceUri, name)
+class SeriesSummary(
+    @JsonProperty("resourceURI")
+    resourceUri: String,
+
+    @JsonProperty("name")
+    name: String
+) : BaseSummary(resourceUri, name) {
+    @JsonCreator
+    internal constructor() : this("", "")
+}
 
 /**
  * A Story summary includes reference to the story entity, type, and the story
@@ -38,7 +59,19 @@ class SeriesSummary(resourceUri: String, name: String) : BaseSummary(resourceUri
  * @param name the name of the story
  * @param type the type of the story (e.g. cover, interiorStory)
  */
-class StorySummary(resourceUri: String, name: String, val type: String) : BaseSummary(resourceUri, name)
+class StorySummary(
+    @JsonProperty("resourceURI")
+    resourceUri: String,
+
+    @JsonProperty("name")
+    name: String,
+
+    @JsonProperty("type")
+    val type: String
+) : BaseSummary(resourceUri, name) {
+    @JsonCreator
+    internal constructor() : this("", "", "")
+}
 
 /**
  * An Event summary includes reference to the event entity and the event name.
@@ -46,7 +79,16 @@ class StorySummary(resourceUri: String, name: String, val type: String) : BaseSu
  * @param resourceUri url reference to consume the full event entity
  * @param name the name of the event
  */
-class EventSummary(resourceUri: String, name: String) : BaseSummary(resourceUri, name)
+class EventSummary(
+    @JsonProperty("resourceURI")
+    resourceUri: String,
+
+    @JsonProperty("name")
+    name: String
+) : BaseSummary(resourceUri, name) {
+    @JsonCreator
+    internal constructor() : this("", "")
+}
 
 /**
  * A Creator summary includes reference to the creator entity, role, and the
@@ -56,7 +98,19 @@ class EventSummary(resourceUri: String, name: String) : BaseSummary(resourceUri,
  * @param name the name of the creator
  * @param role the role of the creator (e.g. writer)
  */
-class CreatorSummary(resourceUri: String, name: String, val role: String) : BaseSummary(resourceUri, name)
+class CreatorSummary(
+    @JsonProperty("resourceURI")
+    resourceUri: String,
+
+    @JsonProperty("name")
+    name: String,
+
+    @JsonProperty("role")
+    val role: String
+) : BaseSummary(resourceUri, name) {
+    @JsonCreator
+    internal constructor() : this("", "", "")
+}
 
 /**
  * A Character summary includes reference to the character entity and the character name.
@@ -64,4 +118,13 @@ class CreatorSummary(resourceUri: String, name: String, val role: String) : Base
  * @param resourceUri url reference to consume the full character entity
  * @param name the name of the character
  */
-class CharacterSummary(resourceUri: String, name: String) : BaseSummary(resourceUri, name)
+class CharacterSummary(
+    @JsonProperty("resourceURI")
+    resourceUri: String,
+
+    @JsonProperty("name")
+    name: String
+) : BaseSummary(resourceUri, name) {
+    @JsonCreator
+    internal constructor() : this("", "")
+}

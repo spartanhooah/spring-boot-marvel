@@ -1,6 +1,8 @@
 plugins {
     id("jacoco")
     id("pmd")
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.kotlin.plugin.spring")
     id("com.diffplug.spotless")
@@ -13,6 +15,8 @@ jar {
 dependencies {
     implementation('org.jetbrains.kotlin:kotlin-reflect:1.6.10')
     implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10')
+
+    implementation('org.springframework.boot:spring-boot-starter')
 }
 
 build {
