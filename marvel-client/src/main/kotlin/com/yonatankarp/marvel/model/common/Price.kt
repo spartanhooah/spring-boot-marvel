@@ -9,19 +9,11 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * @author yonatankarp
  */
 data class Price(
-    /**
-     * The type of the price.
-     */
-    @JsonProperty("type")
-    var type: String,
+    /** The type of the price. */
+    @JsonProperty("type") var type: String,
 
-    /**
-     * The amount
-     */
-    @JsonProperty("price")
-    var price: Int
+    /** The amount */
+    @JsonProperty("price") var price: Int
 ) {
-    @Suppress("unused")
-    @JsonCreator
-    internal constructor() : this("", 0)
+  @Suppress("unused") @JsonCreator internal constructor() : this("", 0)
 }

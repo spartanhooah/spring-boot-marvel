@@ -17,62 +17,62 @@ import retrofit2.http.Query
  */
 interface MarvelCharacterClient {
 
-    @GET("/v1/public/characters")
-    fun getCharacters(
-        @Query("ts") timestamp: Long,
-        @Query("apikey") apiKey: String,
-        @Query("hash") hash: String,
-        @Query("limit") limit: Long = 100,
-        @Query("offset") offset: Long = 0
-    ): Call<List<Character>>
+  @GET("/v1/public/characters")
+  fun getCharacters(
+      @Query("ts") timestamp: Long,
+      @Query("apikey") apiKey: String,
+      @Query("hash") hash: String,
+      @Query("limit") limit: Long = 100,
+      @Query("offset") offset: Long = 0
+  ): Call<List<Character>>
 
-    @GET("/v1/public/characters/{characterId}")
-    fun getCharacter(
-        @Path("characterId") characterId: String,
-        @Query("ts") timestamp: Long,
-        @Query("apikey") apiKey: String,
-        @Query("hash") hash: String,
-        @Query("limit") limit: Long = 100,
-        @Query("offset") offset: Long = 0
-    ): Call<Character>
+  @GET("/v1/public/characters/{characterId}")
+  fun getCharacter(
+      @Path("characterId") characterId: String,
+      @Query("ts") timestamp: Long,
+      @Query("apikey") apiKey: String,
+      @Query("hash") hash: String,
+      @Query("limit") limit: Long = 100,
+      @Query("offset") offset: Long = 0
+  ): Call<Character>
 
-    @GET("/v1/public/characters/{characterId}/comics")
-    fun getComicsByCharacterId(
-        @Path("characterId") characterId: String,
-        @Query("ts") timestamp: Long,
-        @Query("apikey") apiKey: String,
-        @Query("hash") hash: String,
-        @Query("limit") limit: Long = 100,
-        @Query("offset") offset: Long = 0
-    ): Call<List<Comics>>
+  @GET("/v1/public/characters/{characterId}/comics")
+  fun getComicsByCharacterId(
+      @Path("characterId") characterId: String,
+      @Query("ts") timestamp: Long,
+      @Query("apikey") apiKey: String,
+      @Query("hash") hash: String,
+      @Query("limit") limit: Long = 100,
+      @Query("offset") offset: Long = 0
+  ): Call<List<Comics>>
 
-    @GET("/v1/public/characters/{characterId}/events")
-    fun getEventsByCharacterId(
-        @Path("characterId") characterId: String,
-        @Query("ts") timestamp: Long,
-        @Query("apikey") apiKey: String,
-        @Query("hash") hash: String,
-        @Query("limit") limit: Long = 100,
-        @Query("offset") offset: Long = 0
-    ): Call<List<Event>>
+  @GET("/v1/public/characters/{characterId}/events")
+  fun getEventsByCharacterId(
+      @Path("characterId") characterId: String,
+      @Query("ts") timestamp: Long,
+      @Query("apikey") apiKey: String,
+      @Query("hash") hash: String,
+      @Query("limit") limit: Long = 100,
+      @Query("offset") offset: Long = 0
+  ): Call<List<Event>>
 
-    @GET("/v1/public/characters/{characterId}/series")
-    fun getSeriesByCharacterId(
-        @Path("characterId") characterId: String,
-        @Query("ts") timestamp: Long,
-        @Query("apikey") apiKey: String,
-        @Query("hash") hash: String,
-        @Query("limit") limit: Long = 100,
-        @Query("offset") offset: Long = 0
-    ): Call<List<Series>>
+  @GET("/v1/public/characters/{characterId}/series")
+  fun getSeriesByCharacterId(
+      @Path("characterId") characterId: String,
+      @Query("ts") timestamp: Long,
+      @Query("apikey") apiKey: String,
+      @Query("hash") hash: String,
+      @Query("limit") limit: Long = 100,
+      @Query("offset") offset: Long = 0
+  ): Call<List<Series>>
 
-    @GET("/v1/public/characters/{characterId}/stories")
-    fun getStoriesByCharacterId(
-        @Path("characterId") characterId: String,
-        @Query("ts") timestamp: Long,
-        @Query("apikey") apiKey: String,
-        @Query("hash") hash: String,
-        @Query("limit") limit: Long = 100,
-        @Query("offset") offset: Long = 0
-    ): Call<List<Story>>
+  @GET("/v1/public/characters/{characterId}/stories")
+  fun getStoriesByCharacterId(
+      @Path("characterId") characterId: String,
+      @Query("ts") timestamp: Long,
+      @Query("apikey") apiKey: String,
+      @Query("hash") hash: String,
+      @Query("limit") limit: Long = 100,
+      @Query("offset") offset: Long = 0
+  ): Call<List<Story>>
 }

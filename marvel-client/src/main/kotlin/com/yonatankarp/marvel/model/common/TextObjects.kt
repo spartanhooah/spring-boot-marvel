@@ -9,25 +9,14 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * @author yonatankarp
  */
 data class TextObjects(
-    /**
-     * The string description of the text object (e.g. solicit text, preview text, etc.).
-     */
-    @JsonProperty("type")
-    var type: String,
+    /** The string description of the text object (e.g. solicit text, preview text, etc.). */
+    @JsonProperty("type") var type: String,
 
-    /**
-     * A language code denoting which language the text object is written in.
-     */
-    @JsonProperty("language")
-    var language: String,
+    /** A language code denoting which language the text object is written in. */
+    @JsonProperty("language") var language: String,
 
-    /**
-     * The text of the text object.
-     */
-    @JsonProperty("text")
-    var text: String
+    /** The text of the text object. */
+    @JsonProperty("text") var text: String
 ) {
-    @Suppress("unused")
-    @JsonCreator
-    internal constructor() : this("", "", "")
+  @Suppress("unused") @JsonCreator internal constructor() : this("", "", "")
 }
